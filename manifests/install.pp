@@ -4,8 +4,8 @@ class etcd::install inherits ::etcd {
 
   case $::etcd::install_method {
     'archive': {
-      $archive_name = "etcd-v${::etcd::version}-${::etcd::os_release}-${::etcd::release_arch}"
-      $archive_url = "https://github.com/coreos/etcd/releases/download/v${::etcd::version}/${archive_name}.${::etcd::release_ext}"
+      $archive_name = "etcd-v${::etcd::archive_version}-${::etcd::os_release}-${::etcd::release_arch}"
+      $archive_url = "https://github.com/coreos/etcd/releases/download/v${::etcd::archive_version}/${archive_name}.${::etcd::release_ext}"
       file { "${::etcd::archive_path}/etcd":
         ensure => 'directory',
         owner  => 'root',

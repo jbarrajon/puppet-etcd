@@ -25,7 +25,7 @@ class etcd (
   $config_options      = $::etcd::params::config_options,
 ) inherits ::etcd::params {
 
-  $final_config_options = hiera_hash('etcd::config_options', $config_options)
+  $final_config_options = lookup('etcd::config_options', { 'value_type' => Hash, 'merge' => 'deep', 'default_value' => $config_options })
 
   include ::etcd::install
   include ::etcd::config
