@@ -1,0 +1,6 @@
+<% scope.lookupvar('::etcd::final_config_options').each do |section,settings| -%>
+# [<%= section %>]
+<% settings.each do |key,value| -%>
+<%= key %>="<%= value %>"
+<% end -%>
+<% end -%>
